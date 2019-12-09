@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoDAL
 {
-    class EncryPetdDal
+    public class EncryPetdDal
     {
     }
 }
