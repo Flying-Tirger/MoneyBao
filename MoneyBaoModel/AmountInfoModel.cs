@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoModel
 {
-    class AmountInfoModel
+    public class AmountInfoModel
     {
     }
 }
