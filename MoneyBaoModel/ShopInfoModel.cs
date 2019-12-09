@@ -8,19 +8,33 @@ namespace MoneyBaoModel
 {
     public class ShopInfoModel
     {
-        ///商品Id
+       /// <summary>
+       /// 商品Id
+       /// </summary>
         public int ShopInfoId { get; set; }
-        //商品名称
+        /// <summary>
+        /// 商品名称
+        /// </summary>
         public string ShopName { get; set; }
-        //商品图片
+        /// <summary>
+        /// 商品图片
+        /// </summary>
         public string ShopPicture { get; set; }
-        //商品价格
+        /// <summary>
+        /// 商品价格
+        /// </summary>
         public double ShopMuch { get; set; }
-        //商品折扣
+        /// <summary>
+        /// 商品折扣
+        /// </summary>
         public double ShopDiscount { get; set; }
-        //库存量
+        /// <summary>
+        /// 库存量
+        /// </summary>
         public int StockCount { get; set; }
-        //商品状态(上架，下架)
+        /// <summary>
+        /// 商品状态(上架，下架)
+        /// </summary>
         public int ShopState { get; set; }
     }
 }
