@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoModel
 {
+    /// <summary>
+    /// 成长值积分变动表
+    /// </summary>
     public class GrowthInfoModel
     {
         /// <summary>
