@@ -78,5 +78,9 @@ namespace MoneyBaoModel
         /// 投资人数
         /// </summary>
         public int InvestorCount { get; set; }
+        /// <summary>
+        /// 融资金额
+        /// </summary>
+        public double AmountMoney { get; set; }
     }
 }
