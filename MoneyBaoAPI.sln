@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoAPI", "MoneyBaoAPI\MoneyBaoAPI.csproj", "{7FF18115-965B-42DB-93EE-89D396E2DA8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoDAL", "MoneyBaoDAL\MoneyBaoDAL.csproj", "{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoBll", "MoneyBaoBll\MoneyBaoBll.csproj", "{A8FA7F28-6D9E-4A38-8486-D0F49B1C8EAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoModel", "MoneyBaoModel\MoneyBaoModel.csproj", "{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FF18115-965B-42DB-93EE-89D396E2DA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF18115-965B-42DB-93EE-89D396E2DA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF18115-965B-42DB-93EE-89D396E2DA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF18115-965B-42DB-93EE-89D396E2DA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8FA7F28-6D9E-4A38-8486-D0F49B1C8EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8FA7F28-6D9E-4A38-8486-D0F49B1C8EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8FA7F28-6D9E-4A38-8486-D0F49B1C8EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8FA7F28-6D9E-4A38-8486-D0F49B1C8EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A232FC4-D3A0-4060-B874-B5CD1BC4DDF1}
+	EndGlobalSection
+EndGlobal
