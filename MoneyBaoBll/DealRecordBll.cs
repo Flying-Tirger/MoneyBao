@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoBll
 {
-    class DealRecordBll
+   public class DealRecordBll
     {
     }
 }
