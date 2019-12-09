@@ -11,6 +11,7 @@ namespace MoneyBaoModel
     /// </summary>
     public class ConventRecordModel
     {
+      
         /// <summary>
         /// 兑换Id
         /// </summary>
