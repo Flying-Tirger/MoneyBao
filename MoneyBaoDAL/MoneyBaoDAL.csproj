@@ -51,6 +51,7 @@
     <Compile Include="EncryPetdDal.cs" />
     <Compile Include="GrowthInfoDal.cs" />
     <Compile Include="ShopInfoDal.cs" />
+    <Compile Include="SqlconntionHelper.cs" />
     <Compile Include="UserInfoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

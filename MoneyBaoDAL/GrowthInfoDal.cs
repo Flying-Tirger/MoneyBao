@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoDAL
 {
-    class GrowthInfoDal
+    /// <summary>
+    /// 成长值积分变动表
+    /// </summary>
+    public class GrowthInfoDal
     {
+
     }
 }
