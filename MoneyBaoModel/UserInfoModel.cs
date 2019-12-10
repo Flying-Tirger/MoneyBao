@@ -92,7 +92,7 @@ namespace MoneyBaoModel
         /// <summary>
         /// 身份证账号
         /// </summary>
-
+        /// 
         public string IdentityId { get; set; }
         /// <summary> 
         /// 银行卡号
