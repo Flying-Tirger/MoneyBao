@@ -21,6 +21,10 @@ namespace MoneyBaoModel
         /// </summary>
         public string UserPwd { get; set; }
         /// <summary>
+        /// 性别
+        /// </summary>
+        public bool UserSex { get; set; }
+        /// <summary>
         /// 密保问题1(连接密保表)
         /// </summary>
         public int FirstEncryPetdId { get; set; }
