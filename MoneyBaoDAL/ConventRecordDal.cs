@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoDAL
 {
-    class ConventRecordDal
+    public class ConventRecordDal
     {
+
     }
 }
