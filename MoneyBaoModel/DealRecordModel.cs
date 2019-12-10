@@ -9,7 +9,7 @@ namespace MoneyBaoModel
     /// <summary>
     /// 交易记录表
     /// </summary>
-    class DealRecordModel
+    public class DealRecordModel
     {
         /// <summary>
         /// 交易记录Id
