@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneyBaoDAL
+namespace PubilcHelper
 {
-    public static class SqlconntionHelper
+    public static class SqlConntionHelper
     {
         /// <summary>
         /// 配置连接字符串

@@ -14,16 +14,15 @@ namespace MoneyBaoDAL
     /// </summary>
     public class AmountInfoDal
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=MoneyLeopard;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(PubilcHelper.SqlConntionHelper.GetConntion());
         /// <summary>
         /// 添加
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
        public int AddAmountInfo(AmountInfoModel model)
-        {
-           
-            string sql = $"insert into AmountInfo values({model.AmountName},{model.AmountSerial},{model.ApplyMoney},{model.AmountMoney},{model.InterestRate},{model.FinanceTime},{model.RapayMentTime},{model.FinanceUser},{model.AmountState},{model.CreateTime})";
+        {         
+            string sql = $"insert into AmountInfo(AmountName,AmountSerial,ApplyMoney,AmountMoney,InterestRate,FinanceTime,RapayMentTime,FinanceUser,AmountState,CreateTime) values({model.AmountName},{model.AmountSerial},{model.ApplyMoney},{model.AmountMoney},{model.InterestRate},{model.FinanceTime},{model.RapayMentTime},{model.FinanceUser},{model.AmountState},{model.CreateTime})";
             return conn.Execute(sql);
         }
         /// <summary>
@@ -31,9 +30,9 @@ namespace MoneyBaoDAL
         /// </summary>
         /// <param name="InvestorCount"></param>
         /// <returns></returns>
-        public int UpdateInvestorCount(int InvestorCount,int AmountId)
+        public int UpdateInvestorCount(int AmountMoney,int AmountId)
         {
-            string sql = $"update  AmountInfo  set  InvestorCount=InvestorCount+1 where AmountId=AmountId";
+            string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1,set AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
             return conn.Execute(sql);
         }
         /// <summary>
@@ -51,7 +50,7 @@ namespace MoneyBaoDAL
         /// </summary>
         public List<AmountInfoModel> ShowAmountInfo()
         {
-            return conn.Query<AmountInfoModel>("select AmountInfo.* from AmountRecord join AmountInfo on AmountInfo.AmountId=AmountRecord.AmountId").ToList();
+            return conn.Query<AmountInfoModel>("select * fromv AmountInfo").ToList();
         }
     }
 }
