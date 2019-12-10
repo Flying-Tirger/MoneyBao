@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\日常文件\专九\Day08.Exercises\DAL\bin\Debug\Dapper.dll</HintPath>
+      <HintPath>bin\Debug\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
