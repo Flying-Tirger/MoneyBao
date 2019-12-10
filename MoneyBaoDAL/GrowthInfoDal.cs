@@ -31,7 +31,7 @@ namespace MoneyBaoDAL
         /// <returns></returns> 
         public List<GrowthInfoModel> Show()
         {
-            return conn.Query<GrowthInfoModel>("select * from GrowthInfo join UserInfo on GrowthInfo.GrowthId=UserInfo.UserId join ConventRecord on UserInfo.UserId=ConventRecord.ConventRecordId join ShopInfo on ConventRecord.ConventRecordId=ShopInfo.ShopInfoId", conn).ToList();
+            return conn.Query<GrowthInfoModel>("select * from GrowthInfo join UserInfo on GrowthInfo.UserEmail=UserInfo.UserId join ConventRecord on UserInfo.UserId=ConventRecord.UserEmail join ShopInfo on ConventRecord.ConventRecordId=ShopInfo.ShopInfoId", conn).ToList();
         }
 
     }
