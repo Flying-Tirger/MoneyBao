@@ -55,7 +55,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int UpdataHeadFile(UserInfoModel model)
         {
-            string sql = $"update from UserInfo HeadFile='{model.HeadFile}' where UserId='{model.UserId}'";
+            string sql = $"update UserInfo set HeadFile='{model.HeadFile}' where UserId='{model.UserId}'";
             return Examce(sql);
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int UpdataUserName(UserInfoModel model)
         {
-            string sql = $"update from UserInfo UserName='{model.UserName}' where UserId='{model.UserId}'";
+            string sql = $"update  UserInfo set UserName='{model.UserName}' where UserId='{model.UserId}'";
             conn.Open();
             return Examce(sql);
         }
@@ -73,13 +73,13 @@ namespace MoneyBaoDAL
 
         #endregion
         #region 5.修改获得积分
-        public int UpdataIntergral(UserInfoModel model, int m)
+        public int UpdataIntergral(string UserEmail, int m)
         {
-            string sql = $"update from UserInfo Intergral+='{m}' where UserId='{model.UserId}'";
+            string sql = $"update UserInfo set Intergral+='{m}' where UserEmail='{UserEmail}'";
             return Examce(sql);
         }
         #endregion
-        #region 怎删改方法
+        #region 增删改方法
         public int Examce(string sql)
         {
             SqlCommand cmd = conn.CreateCommand();

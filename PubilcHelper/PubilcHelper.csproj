@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D4DFC78-87BB-4686-AC5F-9A82B28E24E5}</ProjectGuid>
+    <ProjectGuid>{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MoneyBaoDAL</RootNamespace>
-    <AssemblyName>MoneyBaoDAL</AssemblyName>
+    <RootNamespace>PubilcHelper</RootNamespace>
+    <AssemblyName>PubilcHelper</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper">
-      <HintPath>D:\全部文件\桌面的文件\九\11.25\WindowsDay20\WindowsDay20\bin\Debug\Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,25 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AmountInfoDal.cs" />
-    <Compile Include="AmountRecordDal.cs" />
-    <Compile Include="ConventRecordDal.cs" />
-    <Compile Include="DealRecordDal.cs" />
-    <Compile Include="EncryPetdDal.cs" />
-    <Compile Include="GrowthInfoDal.cs" />
-    <Compile Include="ShopInfoDal.cs" />
-    <Compile Include="UserInfoDal.cs" />
+    <Compile Include="SqlConntionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MoneyBaoModel\MoneyBaoModel.csproj">
-      <Project>{b9e83ba3-662d-44a2-99b9-aa8e17eee3c1}</Project>
-      <Name>MoneyBaoModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PubilcHelper\PubilcHelper.csproj">
-      <Project>{526de9e1-27c3-48e6-bba7-5ee972fafeff}</Project>
-      <Name>PubilcHelper</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

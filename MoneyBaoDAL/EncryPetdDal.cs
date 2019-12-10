@@ -8,5 +8,7 @@ namespace MoneyBaoDAL
 {
     public class EncryPetdDal
     {
+         
+
     }
 }

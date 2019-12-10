@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoBll", "MoneyBaoBll\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBaoModel", "MoneyBaoModel\MoneyBaoModel.csproj", "{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubilcHelper", "PubilcHelper\PubilcHelper.csproj", "{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9E83BA3-662D-44A2-99B9-AA8E17EEE3C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526DE9E1-27C3-48E6-BBA7-5EE972FAFEFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
