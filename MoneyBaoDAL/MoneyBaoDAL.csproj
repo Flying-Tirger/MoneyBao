@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
-      <HintPath>E:\专高四\课堂讲师代码\Dapper.dll</HintPath>
+      <HintPath>D:\全部文件\桌面的文件\九\11.25\WindowsDay20\WindowsDay20\bin\Debug\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
