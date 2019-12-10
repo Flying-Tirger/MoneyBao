@@ -8,7 +8,7 @@ using MoneyBaoModel;
 using System.Data.SqlClient;
 using System.Data;
 using Dapper;
-
+using PubilcHelper;
 namespace MoneyBaoDAL
 {
     /// <summary>
@@ -16,7 +16,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class ConventRecordDal
     {
-        SqlConnection conn = new SqlConnection("Data Source=192.168.43.68;Initial Catalog=MoneyLeopard;User ID=sa");
+        SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion());
         /// <summary>
         /// 添加：记录兑换信息 (兑换个数)(消费积分)(兑换时间)
         /// </summary>
@@ -45,7 +45,7 @@ namespace MoneyBaoDAL
             {
                 sql += $" and ConventRecord.UserEmail like '{UserEmil}'";
             }
-            using (SqlConnection conn = new SqlConnection(SqlconntionHelper.GetConntion()))
+            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
                 return conn.Query<ConventRecordModel>(sql, conn).ToList();
             }
