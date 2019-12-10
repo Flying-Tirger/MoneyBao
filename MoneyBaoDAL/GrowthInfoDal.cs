@@ -13,7 +13,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class GrowthInfoDal
     {
-        SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=MoneyLeopard;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=192.168.43.68;Initial Catalog=MoneyLeopard;User ID=sa");
         /// <summary>
         /// 添加
         /// </summary>
@@ -23,7 +23,7 @@ namespace MoneyBaoDAL
         {
 
             string sql = $"insert into GrowthInfo values({model.GrowthId},{model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
-            return conn.Execute(sql);
+            return conn.Execute(sql,conn);
         }
         /// <summary>
         /// 显示
