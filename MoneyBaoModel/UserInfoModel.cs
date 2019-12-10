@@ -66,10 +66,6 @@ namespace MoneyBaoModel
         /// </summary>
         public string UserName { get; set; }
         /// <summary>
-        /// 性别
-        /// </summary>
-        public bool UserSex { get; set; }
-        /// <summary>
         /// 积分
         /// </summary>
         public int Intergral { get; set; }
