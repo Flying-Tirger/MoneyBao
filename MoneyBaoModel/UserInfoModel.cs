@@ -46,10 +46,6 @@ namespace MoneyBaoModel
 
         public string ThreedEncryPetdPwd { get; set; }
         /// <summary>
-        /// 连接交易记录表
-        /// </summary>
-        public int DealRecordId { get; set; }
-        /// <summary>
         /// 注册时间
         /// </summary>
         public DateTime CreateTime { get; set; }
