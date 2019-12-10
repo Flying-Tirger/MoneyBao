@@ -11,6 +11,10 @@ namespace MoneyBaoBll
    public class ShopInfoBll
     {
         ShopInfoDal dal = new ShopInfoDal();
+        /// <summary>
+        /// 商品显示
+        /// </summary>
+        /// <returns></returns>
         public List<ShopInfoModel> ShopShow()
         {
             List<ShopInfoModel> shop = dal.ShopShow();
