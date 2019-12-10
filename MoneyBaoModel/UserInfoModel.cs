@@ -21,6 +21,10 @@ namespace MoneyBaoModel
         /// </summary>
         public string UserPwd { get; set; }
         /// <summary>
+        /// 性别
+        /// </summary>
+        public bool UserSex { get; set; }
+        /// <summary>
         /// 密保问题1(连接密保表)
         /// </summary>
         public int FirstEncryPetdId { get; set; }
@@ -62,6 +66,10 @@ namespace MoneyBaoModel
         /// </summary>
         public string UserName { get; set; }
         /// <summary>
+        /// 性别
+        /// </summary>
+        public bool UserSex { get; set; }
+        /// <summary>
         /// 积分
         /// </summary>
         public int Intergral { get; set; }
@@ -84,7 +92,7 @@ namespace MoneyBaoModel
         /// <summary>
         /// 身份证账号
         /// </summary>
-
+        /// 
         public string IdentityId { get; set; }
         /// <summary> 
         /// 银行卡号

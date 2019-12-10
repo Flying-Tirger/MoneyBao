@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoDAL
 {
-  public   class ShopInfoDal
+    /// <summary>
+    /// +
+    /// </summary>
+    public  class ShopInfoDal
     {
+
     }
 }
