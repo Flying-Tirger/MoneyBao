@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper">
-      <HintPath>E:\专高四\课堂讲师代码\Dapper.dll</HintPath>
+      <HintPath>..\..\练习\Day080000000\BLL\bin\Debug\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +51,7 @@
     <Compile Include="EncryPetdDal.cs" />
     <Compile Include="GrowthInfoDal.cs" />
     <Compile Include="ShopInfoDal.cs" />
+    <Compile Include="SqlconntionHelper.cs" />
     <Compile Include="UserInfoDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
