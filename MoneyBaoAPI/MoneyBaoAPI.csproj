@@ -155,7 +155,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AmountInfoController.cs" />
+    <Compile Include="Controllers\AmountRecordController.cs" />
+    <Compile Include="Controllers\ConventRecordController.cs" />
+    <Compile Include="Controllers\DealRecordController.cs" />
+    <Compile Include="Controllers\EncryPetdController.cs" />
+    <Compile Include="Controllers\GrowthInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopInfoController.cs" />
+    <Compile Include="Controllers\UserInfoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -254,6 +262,10 @@
     <ProjectReference Include="..\MoneyBaoModel\MoneyBaoModel.csproj">
       <Project>{b9e83ba3-662d-44a2-99b9-aa8e17eee3c1}</Project>
       <Name>MoneyBaoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PubilcHelper\PubilcHelper.csproj">
+      <Project>{526de9e1-27c3-48e6-bba7-5ee972fafeff}</Project>
+      <Name>PubilcHelper</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
