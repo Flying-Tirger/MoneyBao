@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoneyBaoModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace MoneyBaoBll
 {
     public class AmountRecordBll
     {
+        MoneyBaoDAL.AmountRecordDal dal = new MoneyBaoDAL.AmountRecordDal();
         /// <summary>
         /// 添加项目记录
         /// </summary>
@@ -15,11 +17,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountRecord(AmountRecordModel model)
         {
-            string sql = $"insert into AmountRecord values('{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Execute(sql, conn);
-            }
+            return dal.AddAmountRecord(model);
         }
         /// <summary>
         /// 显示记录
@@ -27,21 +25,9 @@ namespace MoneyBaoBll
         /// <param name="CreateTime"></param>
         /// <param name="AmountState"></param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "", string , string AmountState = "")
+        public List<AmountRecordModel> Show(string CreateTime = "",  string AmountState = "")
         {
-            string sql = "select * from AmountRecord  where 1=1 ";
-            if (!string.IsNullOrWhiteSpace(CreateTime))
-            {
-                sql += $" and CreateTim>='{CreateTime}'";
-            }
-            if (AmountState != "-1")
-            {
-                sql += string.Format(" and AmountState={0}", AmountState);
-            }
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Query<AmountRecordModel>(sql, conn).ToList();
-            }
+            return dal.Show(CreateTime, AmountState);
         }
         /// <summary>
         /// 修改状态 
@@ -50,11 +36,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int Update(int AmountState, int AmountId)
         {
-            string sql = $"update AmountRecord set AmountState={AmountState} where AmountId  in ({AmountId})";
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Execute(sql, conn);
-            }
+            return dal.Update(AmountState, AmountId);
         }
     }
 }

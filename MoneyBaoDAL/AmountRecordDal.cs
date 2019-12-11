@@ -31,7 +31,7 @@ namespace MoneyBaoDAL
         /// <param name="CreateTime"></param>
         /// <param name="AmountState"></param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "", string ,string AmountState = "")
+        public List<AmountRecordModel> Show(string CreateTime = "" ,string AmountState = "")
         {
             string sql = "select * from AmountRecord  where 1=1 ";
             if (!string.IsNullOrWhiteSpace(CreateTime))
