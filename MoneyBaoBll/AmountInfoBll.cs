@@ -16,7 +16,6 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountInfo(AmountInfoModel model)
         {
-
             return dal.AddAmountInfo(model);
         }
         /// <summary>
