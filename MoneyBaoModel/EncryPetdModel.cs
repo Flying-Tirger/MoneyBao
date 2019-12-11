@@ -9,7 +9,7 @@ namespace MoneyBaoModel
     /// <summary>
     /// 密保表
     /// </summary>
-    class EncryPetdModel
+    public class EncryPetdModel
     {
         /// <summary>
         /// 密保Id
