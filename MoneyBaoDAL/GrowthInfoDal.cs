@@ -13,7 +13,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class GrowthInfoDal
     {
-        SqlConnection conn = new SqlConnection("Data Source=192.168.43.68;Initial Catalog=MoneyLeopard;User ID=sa");
+        SqlConnection conn = new SqlConnection(PubilcHelper.SqlConntionHelper.GetConntion());
         /// <summary>
         /// 添加
         /// </summary>
@@ -22,7 +22,7 @@ namespace MoneyBaoDAL
         public int Post(GrowthInfoModel model)
         {
 
-            string sql = $"insert into GrowthInfo values({model.GrowthId},{model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
+            string sql = $"insert into GrowthInfo values({model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
             return conn.Execute(sql,conn);
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace MoneyBaoDAL
         /// <returns></returns> 
         public List<GrowthInfoModel> Show()
         {
-            return conn.Query<GrowthInfoModel>("select * from GrowthInfo join UserInfo on GrowthInfo.UserEmail=UserInfo.UserId join ConventRecord on UserInfo.UserId=ConventRecord.UserEmail join ShopInfo on ConventRecord.ConventRecordId=ShopInfo.ShopInfoId", conn).ToList();
+            return conn.Query<GrowthInfoModel>("select * from GrowthInfo", conn).ToList();
         }
 
     }

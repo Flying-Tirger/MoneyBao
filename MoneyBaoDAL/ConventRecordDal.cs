@@ -28,7 +28,7 @@ namespace MoneyBaoDAL
             {
                 conn.Open();
             }
-            string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newGete()')";
+            string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newdate()')";
             SqlCommand cmd = new SqlCommand(sql,conn);
             int n=cmd.ExecuteNonQuery();
             return n;
@@ -40,7 +40,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public List<ConventRecordModel> RecordShow(string UserEmil = "")
         {
-            string sql = $"select UserInfo.UserEmail,ShopInfo.ShopName,ConventRecord.ConventCount,ConventRecord.ConventTime from ConventRecord join ShopInfo on ConventRecord.ShopInfoId = ShopInfo.ShopInfoIdjoin UserInfo on ConventRecord.UserEmail = UserInfo.UserEmail where 1-1";
+            string sql = $"select * from ConventRecord  where 1-1";
             if (!string.IsNullOrWhiteSpace(UserEmil))
             {
                 sql += $" and ConventRecord.UserEmail like '{UserEmil}'";
@@ -55,9 +55,9 @@ namespace MoneyBaoDAL
         /// </summary>
         /// <param name="sid"></param>
         /// <returns></returns>
-        public int RecordDel(string sid)
+        public int RecordDel(string DealRecordId)
         {
-            string sql = $"delete from ConventRecord where Id='{sid.Split(',')}'";
+            string sql = $"delete from ConventRecord where DealRecordId in ({DealRecordId})";
             if (conn.State == ConnectionState.Closed)
             {
                 conn.Open();
