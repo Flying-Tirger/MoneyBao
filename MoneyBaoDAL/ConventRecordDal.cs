@@ -31,6 +31,7 @@ namespace MoneyBaoDAL
             string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newdate()')";
             SqlCommand cmd = new SqlCommand(sql,conn);
             int n=cmd.ExecuteNonQuery();
+            conn.Close();
             return n;
         }
         /// <summary>
@@ -64,6 +65,7 @@ namespace MoneyBaoDAL
             }
             SqlCommand cmd = new SqlCommand(sql,conn);
             int n = cmd.ExecuteNonQuery();
+            conn.Close();
             return n;
         }
     }
