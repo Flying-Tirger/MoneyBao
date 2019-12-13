@@ -13,7 +13,7 @@ namespace MoneyBaoDAL
     
     public  class ShopInfoDal
     {
-        SqlConnection conn = new SqlConnection(SqlconntionHelper.GetConntion());
+        SqlConnection conn = new SqlConnection(PubilcHelper.SqlConntionHelper.GetConntion());
         /// <summary>
         /// 商品显示
         /// </summary>
