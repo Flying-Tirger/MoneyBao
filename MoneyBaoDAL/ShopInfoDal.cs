@@ -14,14 +14,13 @@ namespace MoneyBaoDAL
     
     public  class ShopInfoDal
     {
-        SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion());
         /// <summary>
         /// 商品显示
         /// </summary>
         public List<ShopInfoModel> ShopShow()
         {
             string sql = "select * from ShopInfo where ShopState=true";
-            return conn.Query<ShopInfoModel>(sql, conn).ToList();
+            return DBHelper.GetToList<ShopInfoModel>(sql);
         }
         /// <summary>
         /// 修改库存量
@@ -32,7 +31,7 @@ namespace MoneyBaoDAL
         public int Update(int ShopInfoId, int Count)
         {
             string sql = $"update set StockCount-={Count} where ShopInfoId={ShopInfoId}";
-            return conn.Execute(sql);
+            return DBHelper.ExecuteNonQuery(sql);
         }
     }
 }

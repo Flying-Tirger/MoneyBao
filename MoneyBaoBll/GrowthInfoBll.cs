@@ -22,7 +22,16 @@ namespace MoneyBaoBll
         public int Post(GrowthInfoModel model)
         {
             MoneyBaoDAL.UserInfoDal infoDal = new MoneyBaoDAL.UserInfoDal();
-            return dal.Post(model);
+            int n =  infoDal.UpdataIntergral(model.UserEmail, model.ChangeValue, model.DisthingId);
+            if (n>0)
+            {
+                return dal.Post(model);
+            }
+            else
+            {
+                return 0;
+            }
+          
         }
         /// <summary>
         /// 显示

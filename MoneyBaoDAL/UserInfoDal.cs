@@ -54,13 +54,13 @@ namespace MoneyBaoDAL
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
-        /// 修改成长值、积分
+        /// 修改成长值、积分、钱包
         /// </summary>
         /// <param name="UserEmail">邮箱</param>
         /// <param name="m">变动量</param>
         /// <param name="distinguish">0是积分，1是成长值,2是钱包</param>
-        /// <returns></returns>
-        public int UpdataIntergral(string UserEmail, int m, int distinguish)
+        /// <returns></returns> 
+        public int UpdataIntergral(string UserEmail, double m, int distinguish)
         {
             string sql = "";
             if (distinguish == 0)

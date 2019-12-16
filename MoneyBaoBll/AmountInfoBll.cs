@@ -19,7 +19,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountInfo(AmountInfoModel model)
         {
-            AmountRecordDal recordDal = new AmountRecordDal();
+     
             return dal.AddAmountInfo(model);
         }
         /// <summary>

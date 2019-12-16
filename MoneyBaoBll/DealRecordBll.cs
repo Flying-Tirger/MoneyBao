@@ -19,7 +19,16 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddDealRecord(DealRecordModel dealRecord)
         {
-            return dal.AddDealRecord(dealRecord);
+            MoneyBaoDAL.UserInfoDal infoDal = new MoneyBaoDAL.UserInfoDal();
+           int n =  infoDal.UpdataIntergral(dealRecord.UserEmail, (dealRecord.EndBalance - dealRecord.StartBalance), 2);
+            if (n>0)
+            {
+                return dal.AddDealRecord(dealRecord);
+            }
+            else
+            {
+                return 0;
+            }
         }
         /// <summary>
         /// 显示交易记录
