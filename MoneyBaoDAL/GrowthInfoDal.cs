@@ -25,11 +25,11 @@ namespace MoneyBaoDAL
             string sql = $"insert into GrowthInfo values({model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
             return conn.Execute(sql,conn);
         }
-       /// <summary>
-       /// 显示
-       /// </summary>
-       /// <param name="UserEmail">用户邮箱</param>
-       /// <returns></returns>
+        /// <summary>
+        /// 显示
+        /// </summary>
+        /// <param name="UserEmail">用户邮箱</param>
+        /// <returns></returns>
         public List<GrowthInfoModel> Show(string UserEmail = null)
         {
             string sql = "select * from GrowthInfo";

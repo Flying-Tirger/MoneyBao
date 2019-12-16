@@ -49,7 +49,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int RecordDel(string sid)
         {
-          
+
             return dal.RecordDel(sid);
         }
     }

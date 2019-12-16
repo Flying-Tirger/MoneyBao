@@ -29,7 +29,7 @@ namespace MoneyBaoDAL
         /// <param name="ShopInfoId"></param>
         /// <param name="Count"></param>
         /// <returns></returns>
-        public int Update(int ShopInfoId,int Count)
+        public int Update(int ShopInfoId, int Count)
         {
             string sql = $"update set StockCount-={Count} where ShopInfoId={ShopInfoId}";
             return conn.Execute(sql);

@@ -12,7 +12,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class EncryPetdDal
     {
-      
+
         /// <summary>
         /// 密保显示
         /// </summary>

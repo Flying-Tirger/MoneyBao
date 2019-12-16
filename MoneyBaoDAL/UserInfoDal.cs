@@ -29,7 +29,7 @@ namespace MoneyBaoDAL
         /// <param name="UserEmail">邮箱</param>
         /// <param name="UserPwd">密码</param>
         /// <returns></returns>
-        public int UserInfoExSar(string UserEmail,string UserPwd)
+        public int UserInfoExSar(string UserEmail, string UserPwd)
         {
             string sql = $"select count(1) from UserInfo where UserEmail='{UserEmail}' and UserPwd='{UserPwd}'";
             return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
@@ -48,31 +48,31 @@ namespace MoneyBaoDAL
             }
             else
             {
-                 sql = $"update UserInfo set UserName='{model.UserName}',UserSex='{model.UserSex}',HeadFile='{model.HeadFile}' where UserEmila='{model.UserEmail}'";
+                sql = $"update UserInfo set UserName='{model.UserName}',UserSex='{model.UserSex}',HeadFile='{model.HeadFile}' where UserEmila='{model.UserEmail}'";
             }
-           
+
             return DBHelper.ExecuteNonQuery(sql);
         }
-       /// <summary>
-       /// 修改成长值、积分
-       /// </summary>
-       /// <param name="UserEmail">邮箱</param>
-       /// <param name="m">变动量</param>
-       /// <param name="distinguish">0是积分，1是成长值,2是钱包</param>
-       /// <returns></returns>
-        public int UpdataIntergral(string UserEmail, int m,int distinguish)
+        /// <summary>
+        /// 修改成长值、积分
+        /// </summary>
+        /// <param name="UserEmail">邮箱</param>
+        /// <param name="m">变动量</param>
+        /// <param name="distinguish">0是积分，1是成长值,2是钱包</param>
+        /// <returns></returns>
+        public int UpdataIntergral(string UserEmail, int m, int distinguish)
         {
             string sql = "";
-            if (distinguish==0)
+            if (distinguish == 0)
             {
-               sql = $"update UserInfo set Intergral+='{m}' where UserEmail='{UserEmail}'";
-            
+                sql = $"update UserInfo set Intergral+='{m}' where UserEmail='{UserEmail}'";
+
             }
-            if (distinguish==1)
+            if (distinguish == 1)
             {
                 sql = $"update UserInfo set GrowthValue+='{m}' where UserEmail='{UserEmail}'";
             }
-            if(distinguish==2)
+            if (distinguish == 2)
             {
 
                 sql = $"update UserInfo set MoneyBag+='{m}' where UserEmail='{UserEmail}'";
@@ -86,10 +86,10 @@ namespace MoneyBaoDAL
         /// <param name="distinguish">0是登录密码 1是交易密码 2是身份证 3是银行卡</param>
         /// <param name="variable">变量值</param>
         /// <returns></returns>
-        public int UserEmilaVerify(string UserEmail, int distinguish,string variable = "")
+        public int UserEmilaVerify(string UserEmail, int distinguish, string variable = "")
         {
 
-            if (UserEmail!="")
+            if (UserEmail != "")
             {
                 string sql = "select count(1) from UserInfo where UserEmail=" + UserEmail;
                 return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
@@ -97,15 +97,15 @@ namespace MoneyBaoDAL
             else
             {
                 string sql = "";
-                if (distinguish==0)
+                if (distinguish == 0)
                 {
-                     sql = $"update userinfo set userpwd='{variable}' where UserEmail='{UserEmail}'";
+                    sql = $"update userinfo set userpwd='{variable}' where UserEmail='{UserEmail}'";
                 }
-                if (distinguish==1)
+                if (distinguish == 1)
                 {
                     sql = $"update userinfo set DealPwd='{variable}' where UserEmail='{UserEmail}'";
                 }
-                if (distinguish==2)
+                if (distinguish == 2)
                 {
                     sql = $"update userinfo set IdentityId='{variable}' where UserEmail='{UserEmail}'";
                 }
@@ -134,7 +134,7 @@ namespace MoneyBaoDAL
         /// <param name="ThreedEncryPetdPwd">答案三</param>
         /// <param name="UserEmail"></param>
         /// <returns></returns>
-        public int EncryPetdVerify(string FirstEncryPetdPwd,string SecondEncryPetdPwd,string ThreedEncryPetdPwd,string UserEmail)
+        public int EncryPetdVerify(string FirstEncryPetdPwd, string SecondEncryPetdPwd, string ThreedEncryPetdPwd, string UserEmail)
         {
             string sql = $"select count(1) from userinfo where FirstEncryPetdPwd='{FirstEncryPetdPwd}' and SecondEncryPetdPwd='{SecondEncryPetdPwd}' and ThreedEncryPetdPwd='{ThreedEncryPetdPwd}' and UserEmail='{UserEmail}' ";
             return Convert.ToInt32(DBHelper.ExecuteScalar(sql));

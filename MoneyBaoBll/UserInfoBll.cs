@@ -20,7 +20,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int Post(UserInfoModel model)
         {
-          return  dal.Post(model);
+            return dal.Post(model);
         }
         /// <summary>
         /// 邮箱登录
