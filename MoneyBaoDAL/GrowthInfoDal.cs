@@ -25,13 +25,19 @@ namespace MoneyBaoDAL
             string sql = $"insert into GrowthInfo values({model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
             return conn.Execute(sql,conn);
         }
-        /// <summary>
-        /// 显示
-        /// </summary>
-        /// <returns></returns> 
-        public List<GrowthInfoModel> Show()
+       /// <summary>
+       /// 显示
+       /// </summary>
+       /// <param name="UserEmail">用户邮箱</param>
+       /// <returns></returns>
+        public List<GrowthInfoModel> Show(string UserEmail = null)
         {
-            return conn.Query<GrowthInfoModel>("select * from GrowthInfo", conn).ToList();
+            string sql = "select * from GrowthInfo";
+            if (!string.IsNullOrWhiteSpace(UserEmail))
+            {
+                sql += $" where UserEmail = '{UserEmail}'";
+            }
+            return conn.Query<GrowthInfoModel>(sql, conn).ToList();
         }
 
     }

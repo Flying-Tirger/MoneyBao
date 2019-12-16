@@ -39,7 +39,7 @@ namespace MoneyBaoDAL
             //设置条件
             if (!string.IsNullOrWhiteSpace(UserEmil))
             {
-                sql += $" and DealRecord.UserEmail like '{UserEmil}'";
+                sql += $" and DealRecord.UserEmail = '{UserEmil}'";
             }
             if (!string.IsNullOrWhiteSpace(StarTime))
             {

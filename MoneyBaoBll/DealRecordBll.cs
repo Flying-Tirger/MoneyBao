@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 交易记录表
+    /// </summary>
    public class DealRecordBll
     {
         MoneyBaoDAL.DealRecordDal dal = new MoneyBaoDAL.DealRecordDal();

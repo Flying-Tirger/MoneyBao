@@ -8,6 +8,9 @@ using MoneyBaoModel;
 
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 商品表
+    /// </summary>
    public class ShopInfoBll
     {
         ShopInfoDal dal = new ShopInfoDal();

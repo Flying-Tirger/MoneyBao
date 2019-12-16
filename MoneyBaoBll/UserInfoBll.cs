@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using MoneyBaoDAL;
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 用户表
+    /// </summary>
     public class UserInfoBll
     {
         UserInfoDal dal = new UserInfoDal();

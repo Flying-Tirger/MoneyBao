@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 项目记录表
+    /// </summary>
     public class AmountRecordBll
     {
         MoneyBaoDAL.AmountRecordDal dal = new MoneyBaoDAL.AmountRecordDal();
@@ -17,17 +20,28 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountRecord(AmountRecordModel model)
         {
-            return dal.AddAmountRecord(model);
+            MoneyBaoDAL.AmountInfoDal infoDal = new MoneyBaoDAL.AmountInfoDal();
+            int n =  infoDal.UpdateInvestorCount(model.InvestorMoney, model.AmountId);
+            if (n>0)
+            {
+                return dal.AddAmountRecord(model);
+            }
+            else
+            {
+                return 0;
+            }
         }
+        
         /// <summary>
         /// 显示记录
         /// </summary>
-        /// <param name="CreateTime"></param>
-        /// <param name="AmountState"></param>
+        /// <param name="CreateTime">创建时间</param>
+        /// <param name="AmountState">状态</param>
+        /// <param name="UserEmail">用户邮箱</param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "",  string AmountState = "")
+        public List<AmountRecordModel> Show(string CreateTime = "",  int AmountState = "",string UserEmail="")
         {
-            return dal.Show(CreateTime, AmountState);
+            return dal.Show(CreateTime, AmountState,UserEmail);
         }
         /// <summary>
         /// 修改状态 

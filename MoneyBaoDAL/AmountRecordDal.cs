@@ -31,20 +31,24 @@ namespace MoneyBaoDAL
         /// <param name="CreateTime"></param>
         /// <param name="AmountState"></param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "" ,string AmountState = "")
+        public List<AmountRecordModel> Show(string CreateTime = "" ,int AmountState = -1,string UserEmail="")
         {
             string sql = "select * from AmountRecord  where 1=1 ";
             if (!string.IsNullOrWhiteSpace(CreateTime))
             {
                 sql += $" and CreateTim>='{CreateTime}'";
             }
-            if (AmountState != "-1")
+            if (AmountState != -1)
             {
                 sql += string.Format(" and AmountState={0}", AmountState);
             }
+            if (!string.IsNullOrWhiteSpace(UserEmail))
+            {
+                sql += $" and UserEmail='{UserEmail}'";
+            }
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
-                return conn.Query<AmountRecordModel>(sql, conn).ToList();
+                return conn.Query<AmountRecordModel>(sql,conn).ToList();
             }
         }
         /// <summary>

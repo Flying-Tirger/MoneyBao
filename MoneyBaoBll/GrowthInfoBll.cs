@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoBll
 {
-   public class GrowthInfoBll
+    /// <summary>
+    /// 成长值积分变动表
+    /// </summary>
+    public class GrowthInfoBll
     {
         MoneyBaoDAL.GrowthInfoDal dal = new MoneyBaoDAL.GrowthInfoDal();
 
@@ -18,15 +21,16 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int Post(GrowthInfoModel model)
         {
+            MoneyBaoDAL.UserInfoDal infoDal = new MoneyBaoDAL.UserInfoDal();
             return dal.Post(model);
         }
         /// <summary>
         /// 显示
         /// </summary>
         /// <returns></returns> 
-        public List<GrowthInfoModel> Show()
+        public List<GrowthInfoModel> Show(string UserEmail=null)
         {
-            return dal.Show();
+            return dal.Show(UserEmail);
         }
     }
 }

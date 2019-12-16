@@ -7,6 +7,9 @@ using MoneyBaoDAL;
 using MoneyBaoModel;
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 项目表
+    /// </summary>
   public  class AmountInfoBll
     {
         AmountInfoDal dal = new AmountInfoDal();
@@ -16,16 +19,8 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountInfo(AmountInfoModel model)
         {
+            AmountRecordDal recordDal = new AmountRecordDal();
             return dal.AddAmountInfo(model);
-        }
-        /// <summary>
-        /// 修改投资的人数
-        /// </summary>
-        /// <param name="InvestorCount"></param>
-        /// <returns></returns>
-        public int UpdateInvestorCount(int InvestorCount, int AmountId)
-        {
-            return dal.UpdateInvestorCount(InvestorCount,AmountId);
         }
         /// <summary>
         /// 修改投资人的身份、抵押物、抵押物证明、联系人手机号

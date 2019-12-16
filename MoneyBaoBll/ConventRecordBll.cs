@@ -8,8 +8,12 @@ using MoneyBaoModel;
 using MoneyBaoDAL;
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 兑换记录表
+    /// </summary>
     public class ConventRecordBll
     {
+        ConventRecordDal dal = new ConventRecordDal();
         /// <summary>
         /// 添加：记录兑换信息 (兑换个数)(消费积分)(兑换时间)
         /// </summary>
@@ -17,8 +21,17 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int RecordAdd(ConventRecordModel recordModel)
         {
-            ConventRecordDal dal = new ConventRecordDal();
-            return dal.RecordAdd(recordModel);
+          
+            ShopInfoDal infoDal = new ShopInfoDal();
+            int n =  infoDal.Update(recordModel.ShopInfoId, recordModel.ConventCount);
+            if (n>0)
+            {
+                return dal.RecordAdd(recordModel);
+            }
+            else
+            {
+                return 0;
+            }
         }
         /// <summary>
         /// 显示：关联用户表和商品信息表 显示出用户邮箱，兑换的商品信息，
@@ -27,7 +40,6 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public List<ConventRecordModel> RecordShow(string UserEmil = "")
         {
-            ConventRecordDal dal = new ConventRecordDal();
             return dal.RecordShow(UserEmil);
         }
         /// <summary>
@@ -37,7 +49,7 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int RecordDel(string sid)
         {
-            ConventRecordDal dal = new ConventRecordDal();
+          
             return dal.RecordDel(sid);
         }
     }

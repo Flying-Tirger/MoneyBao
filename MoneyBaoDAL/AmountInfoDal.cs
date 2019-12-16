@@ -26,11 +26,12 @@ namespace MoneyBaoDAL
             return conn.Execute(sql);
         }
         /// <summary>
-        /// 修改投资的人数
+        ///  修改投资的人数、以及投资金额 投资人数自动加一
         /// </summary>
-        /// <param name="InvestorCount"></param>
+        /// <param name="AmountMoney">投资金额</param>
+        /// <param name="AmountId">项目Id</param>
         /// <returns></returns>
-        public int UpdateInvestorCount(int AmountMoney,int AmountId)
+        public int UpdateInvestorCount(Double AmountMoney,int AmountId)
         {
             string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1,set AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
             return conn.Execute(sql);

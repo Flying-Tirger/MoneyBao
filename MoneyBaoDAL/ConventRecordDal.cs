@@ -43,7 +43,7 @@ namespace MoneyBaoDAL
             string sql = $"select * from ConventRecord  where 1-1";
             if (!string.IsNullOrWhiteSpace(UserEmil))
             {
-                sql += $" and ConventRecord.UserEmail like '{UserEmil}'";
+                sql += $" and UserEmail = '{UserEmil}'";
             }
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {

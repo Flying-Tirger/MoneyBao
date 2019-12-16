@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MoneyBaoBll
 {
+    /// <summary>
+    /// 密保表
+    /// </summary>
     public class EncryPetdBll
     {
         MoneyBaoDAL.EncryPetdDal dal = new MoneyBaoDAL.EncryPetdDal();
