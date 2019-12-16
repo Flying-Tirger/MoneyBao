@@ -47,7 +47,7 @@ namespace MoneyBaoDAL
             }
             if (!string.IsNullOrWhiteSpace(EndTime))
             {
-                sql += $" and DealRecord.BalanceTime <=ki '{EndTime}'";
+                sql += $" and DealRecord.BalanceTime <= '{EndTime}'";
             }
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
