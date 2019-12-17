@@ -11,7 +11,7 @@ namespace PubilcHelper
     public class DBHelper
     {
         //连接数据库
-        static SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion());
+        static SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()); 
         static SqlDataReader sdr;
         /// <summary>
         /// 获取数据流  查询、显示、绑定下拉

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using MoneyBaoModel;
 using System.Data.SqlClient;
 using System.Data;
-using Dapper;
 using PubilcHelper;
 namespace MoneyBaoDAL
 {
@@ -16,7 +14,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class ConventRecordDal
     {
-        SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion());
+   
         /// <summary>
         /// 添加：记录兑换信息 (兑换个数)(消费积分)(兑换时间)
         /// </summary>
@@ -24,15 +22,10 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int RecordAdd(ConventRecordModel recordModel)
         {
-            if (conn.State == System.Data.ConnectionState.Closed)
-            {
-                conn.Open();
-            }
+           
             string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newdate()')";
-            SqlCommand cmd = new SqlCommand(sql,conn);
-            int n=cmd.ExecuteNonQuery();
-            conn.Close();
-            return n;
+
+               return   PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 显示：关联用户表和商品信息表 显示出用户邮箱，兑换的商品信息，
@@ -46,10 +39,7 @@ namespace MoneyBaoDAL
             {
                 sql += $" and UserEmail = '{UserEmil}'";
             }
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Query<ConventRecordModel>(sql, conn).ToList();
-            }
+           return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有
@@ -59,14 +49,7 @@ namespace MoneyBaoDAL
         public int RecordDel(string DealRecordId)
         {
             string sql = $"delete from ConventRecord where DealRecordId in ({DealRecordId})";
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            SqlCommand cmd = new SqlCommand(sql,conn);
-            int n = cmd.ExecuteNonQuery();
-            conn.Close();
-            return n;
+            return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
     }
 }

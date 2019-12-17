@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
 using MoneyBaoModel;
@@ -22,7 +21,7 @@ namespace MoneyBaoDAL
             string sql = $"insert into AmountRecord values('{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
-                return conn.Execute(sql, conn);
+                return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
             }
         }
         /// <summary>
@@ -46,10 +45,8 @@ namespace MoneyBaoDAL
             {
                 sql += $" and UserEmail='{UserEmail}'";
             }
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Query<AmountRecordModel>(sql,conn).ToList();
-            }
+            return DBHelper.GetToList<AmountRecordModel>(sql);
+            
         }
         /// <summary>
         /// 修改状态 
@@ -59,10 +56,9 @@ namespace MoneyBaoDAL
         public int Update(int AmountState, int AmountId)
         {
             string sql = $"update AmountRecord set AmountState={AmountState} where AmountId  in ({AmountId})";
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Execute(sql, conn);
-            }
+
+            return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
+
         }
 
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 using MoneyBaoModel;
 using System.Data.SqlClient;
 namespace MoneyBaoDAL
@@ -13,7 +12,7 @@ namespace MoneyBaoDAL
     /// </summary>
     public class GrowthInfoDal
     {
-        SqlConnection conn = new SqlConnection(PubilcHelper.SqlConntionHelper.GetConntion());
+        
         /// <summary>
         /// 添加
         /// </summary>
@@ -23,7 +22,7 @@ namespace MoneyBaoDAL
         {
 
             string sql = $"insert into GrowthInfo values({model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue}";
-            return conn.Execute(sql,conn);
+            return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 显示
@@ -37,7 +36,7 @@ namespace MoneyBaoDAL
             {
                 sql += $" where UserEmail = '{UserEmail}'";
             }
-            return conn.Query<GrowthInfoModel>(sql, conn).ToList();
+            return PubilcHelper.DBHelper.GetToList<GrowthInfoModel>(sql);
         }
 
     }

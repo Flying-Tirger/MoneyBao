@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MoneyBaoModel;
-using Dapper;
 using System.Data.SqlClient;
 using System.Configuration;
 using PubilcHelper;
@@ -20,10 +19,7 @@ namespace MoneyBaoDAL
         public int AddDealRecord(DealRecordModel dealRecord)
         {
             string sql = $"insert into DealRecord values('{dealRecord.UserEmail}','{dealRecord.StartBalance}','{dealRecord.EndBalance}','{dealRecord.BalanceTime}','{dealRecord.Cause}','{dealRecord.DealState}')";
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Execute(sql,conn);
-            }
+            return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
 
         }
         /// <summary>
@@ -49,10 +45,7 @@ namespace MoneyBaoDAL
             {
                 sql += $" and DealRecord.BalanceTime <= '{EndTime}'";
             }
-            using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
-            {
-                return conn.Query<DealRecordModel>(sql, conn).ToList();
-            }
+            return PubilcHelper.DBHelper.GetToList<DealRecordModel>(sql);
         }
     }
 }
