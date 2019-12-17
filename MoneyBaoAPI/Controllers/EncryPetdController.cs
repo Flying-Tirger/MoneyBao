@@ -14,7 +14,7 @@ namespace MoneyBaoAPI.Controllers
 
         MoneyBaoBll.EncryPetdBll bll = new MoneyBaoBll.EncryPetdBll();
         /// <summary>
-        /// 密保的显示或者绑定，
+        /// 密保的显示或者绑定，a
         /// </summary>
         /// <returns>作者韩传浩</returns>
         public List<EncryPetdModel> Get()
