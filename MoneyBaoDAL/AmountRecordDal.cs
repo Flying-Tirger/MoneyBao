@@ -18,7 +18,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int AddAmountRecord(AmountRecordModel model) 
         {
-            string sql = $"insert into AmountRecord values('{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
+            string sql = $"insert into AmountRecord values('{model.AmountSerial}','{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
                 return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
