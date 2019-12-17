@@ -9,5 +9,6 @@ namespace MoneyBaoAPI.Controllers
 {
     public class GrowthInfoController : ApiController
     {
+
     }
 }
