@@ -17,6 +17,7 @@ namespace MoneyBaoAPI.Controllers
         /// 密保的显示或者绑定，a
         /// </summary>
         /// <returns>作者韩传浩</returns>
+        /// <returns>获取密保问题</returns>
         public List<EncryPetdModel> Get()
         {
             return bll.Get();
