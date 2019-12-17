@@ -39,14 +39,14 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int UpdataUserName(UserInfoModel model)
         {
-            return UpdataUserName(model);
+            return dal.UpdataUserName(model);
         }
-        
+
         /// <summary>
         /// 验证用户是否存在以及修改登录密码.修改交易密码
         /// </summary>
         /// <param name="UserEmail">邮箱</param>
-        /// <param name="distinguish">0是登录密码 1是交易密码 2是身份证 3是银行卡</param>
+        /// <param name="distinguish">0是登录密码 1是交易密码 2是身份证 3是银行卡 ,4是验证账号</param>
         /// <param name="variable">变量值</param>
         /// <returns></returns>
         public int UserEmilaVerify(string UserEmail, int distinguish, string variable = "")
