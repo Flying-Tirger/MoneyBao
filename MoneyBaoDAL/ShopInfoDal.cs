@@ -18,7 +18,7 @@ namespace MoneyBaoDAL
         /// </summary>
         public List<ShopInfoModel> ShopShow()
         {
-            string sql = "select * from ShopInfo where ShopState=true";
+            string sql = "select * from ShopInfo where ShopState=0";
             return DBHelper.GetToList<ShopInfoModel>(sql);
         }
         /// <summary>
