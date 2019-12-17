@@ -38,9 +38,9 @@ namespace MoneyBaoBll
         ///       兑换的个数，消费的积分，兑换时间
         /// </summary>
         /// <returns></returns>
-        public List<ConventRecordModel> RecordShow()
+        public List<ConventRecordModel> RecordShow(string UserEmail = null)
         {
-            return dal.RecordShow();
+            return dal.RecordShow(UserEmail);
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有

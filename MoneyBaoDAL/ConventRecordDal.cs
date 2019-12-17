@@ -32,10 +32,14 @@ namespace MoneyBaoDAL
         ///       兑换的个数，消费的积分，兑换时间
         /// </summary>
         /// <returns></returns>
-        public List<ConventRecordModel> RecordShow()
+        public List<ConventRecordModel> RecordShow(string UserEmail = null)
         {
-            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail ";
-           return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
+            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail Where 1=1";
+            if (!string.IsNullOrWhiteSpace(UserEmail))
+            {
+                sql += $" and UserEmail = '{UserEmail}'";
+            }
+            return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有
