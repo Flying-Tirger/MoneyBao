@@ -26,11 +26,11 @@ namespace MoneyBaoModel
         /// <summary>
         /// 融资金额
         /// </summary>
-        public double ApplyMoney { get; set; }
+        public decimal ApplyMoney { get; set; }
         /// <summary>
         /// 投资金额
         /// </summary>
-        public double InvestorMoney { get; set; }
+        public decimal InvestorMoney { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
