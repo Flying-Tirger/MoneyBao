@@ -32,13 +32,9 @@ namespace MoneyBaoDAL
         ///       兑换的个数，消费的积分，兑换时间
         /// </summary>
         /// <returns></returns>
-        public List<ConventRecordModel> RecordShow(string UserEmil = "")
+        public List<ConventRecordModel> RecordShow()
         {
-            string sql = $"select * from ConventRecord  where 1-1";
-            if (!string.IsNullOrWhiteSpace(UserEmil))
-            {
-                sql += $" and UserEmail = '{UserEmil}'";
-            }
+            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail ";
            return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
         }
         /// <summary>
