@@ -29,7 +29,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int Update(int ShopInfoId, int Count)
         {
-            string sql = $"update set StockCount-={Count} where ShopInfoId={ShopInfoId}";
+            string sql = $"update ShopInfo set StockCount-={Count} where ShopInfoId={ShopInfoId}";
             return DBHelper.ExecuteNonQuery(sql);
         }
     }
