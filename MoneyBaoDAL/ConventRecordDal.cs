@@ -23,7 +23,7 @@ namespace MoneyBaoDAL
         public int RecordAdd(ConventRecordModel recordModel)
         {
            
-            string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newdate()')";
+            string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}',getDate())";
 
                return   PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }

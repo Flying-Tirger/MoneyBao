@@ -53,7 +53,7 @@ namespace MoneyBaoModel
         /// <summary>
         /// 审核日期
         /// </summary>
-        public int AuditTime { get; set; }
+        public DateTime AuditTime { get; set; }
         /// <summary>
         /// 身份证正面
         /// </summary>
