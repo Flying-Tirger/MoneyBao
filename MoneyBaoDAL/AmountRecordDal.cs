@@ -35,7 +35,7 @@ namespace MoneyBaoDAL
             string sql = "select * from AmountRecord  where 1=1 ";
             if (!string.IsNullOrWhiteSpace(CreateTime))
             {
-                sql += $" and CreateTim>='{CreateTime}'";
+                sql += $" and CreateTime>='{CreateTime}'";
             }
             if (AmountState != -1)
             {
