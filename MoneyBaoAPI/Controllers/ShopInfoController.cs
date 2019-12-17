@@ -15,12 +15,10 @@ namespace MoneyBaoAPI.Controllers
     public class ShopInfoController : ApiController
     {
         ShopInfoBll bll = new ShopInfoBll();
-        [HttpGet]
         public List<ShopInfoModel> GetShopShow()
         {
             return bll.ShopShow();
         }
-        [HttpPut]
         public int Putshop(int ShopInfoId, int Count)
         {
             return bll.Update(ShopInfoId, Count);
