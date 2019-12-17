@@ -25,11 +25,11 @@ namespace MoneyBaoModel
         /// <summary>
         /// 申请金额
         /// </summary>
-        public double ApplyMoney { get; set; }
+        public decimal ApplyMoney { get; set; }
         /// <summary>
         /// 利率
         /// </summary>
-        public double InterestRate { get; set; }
+        public decimal InterestRate { get; set; }
         /// <summary>
         /// 融资期限
         /// </summary>
@@ -81,6 +81,6 @@ namespace MoneyBaoModel
         /// <summary>
         /// 融资金额
         /// </summary>
-        public double AmountMoney { get; set; }
+        public decimal AmountMoney { get; set; }
     }
 }
