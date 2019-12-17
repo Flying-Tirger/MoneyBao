@@ -41,17 +41,7 @@ namespace MoneyBaoBll
         {
             return UpdataUserName(model);
         }
-        /// <summary>
-        /// 修改成长值、积分
-        /// </summary>
-        /// <param name="UserEmail">邮箱</param>
-        /// <param name="m">变动量</param>
-        /// <param name="distinguish">0是积分，1是成长值,2是钱包</param>
-        /// <returns></returns>
-        public int UpdataIntergral(string UserEmail, int m, int distinguish)
-        {
-            return dal.UpdataIntergral(UserEmail, m, distinguish);
-        }
+        
         /// <summary>
         /// 验证用户是否存在以及修改登录密码.修改交易密码
         /// </summary>
