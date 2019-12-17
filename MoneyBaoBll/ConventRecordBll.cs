@@ -47,7 +47,7 @@ namespace MoneyBaoBll
         /// </summary>
         /// <param name="sid"></param>
         /// <returns></returns>
-        public int RecordDel(string sid)
+        public int RecordDel(int sid)
         {
 
             return dal.RecordDel(sid);
