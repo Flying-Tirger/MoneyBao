@@ -123,7 +123,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public List<UserInfoModel> Get(string UserEmail)
         {
-            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail={UserEmail}").ToList();
+            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail='{UserEmail}'");
         }
         /// <summary>
         /// 验证密保
