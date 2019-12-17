@@ -26,9 +26,9 @@ namespace MoneyBaoAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ConventRecordModel> RecordShow()
+        public List<ConventRecordModel> RecordShow(string UserEmail = null)
         {
-            return RecordBll.RecordShow();
+            return RecordBll.RecordShow(UserEmail);
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有
