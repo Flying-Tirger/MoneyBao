@@ -22,6 +22,7 @@ namespace MoneyBaoAPI.Controllers
         /// 商品显示
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public List<ShopInfoModel> GetShopShow()
         {
             return bll.ShopShow();
@@ -32,6 +33,7 @@ namespace MoneyBaoAPI.Controllers
         /// <param name="ShopInfoId">商品Id</param>
         /// <param name="Count">修改的库存量</param>
         /// <returns></returns>
+        [HttpPut]
         public int Putshop(int ShopInfoId, int Count)
         {
             return bll.Update(ShopInfoId, Count);
