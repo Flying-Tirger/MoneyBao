@@ -82,20 +82,17 @@ namespace MoneyBaoDAL
         /// 验证用户是否存在以及修改登录密码.修改交易密码
         /// </summary>
         /// <param name="UserEmail">邮箱</param>
-        /// <param name="distinguish">0是登录密码 1是交易密码 2是身份证 3是银行卡</param>
+        /// <param name="distinguish">0是登录密码 1是交易密码 2是身份证 3是银行卡,4是验证账号</param>
         /// <param name="variable">变量值</param>
         /// <returns></returns>
         public int UserEmilaVerify(string UserEmail, int distinguish, string variable = "")
-        {
-
-            if (UserEmail != "")
-            {
-                string sql = "select count(1) from UserInfo where UserEmail=" + UserEmail;
-                return Convert.ToInt32(DBHelper.ExecuteScalar(sql));
-            }
-            else
-            {
+        {    
                 string sql = "";
+                if (distinguish == 4)
+                {
+                    string sqll = "select count(1) from UserInfo where UserEmail='" + UserEmail+"'";
+                    return Convert.ToInt32(DBHelper.ExecuteScalar(sqll));
+                }
                 if (distinguish == 0)
                 {
                     sql = $"update userinfo set userpwd='{variable}' where UserEmail='{UserEmail}'";
@@ -113,7 +110,7 @@ namespace MoneyBaoDAL
                     sql = $"update userinfo set BankCard='{variable}' where UserEmail='{UserEmail}'";
                 }
                 return DBHelper.ExecuteNonQuery(sql);
-            }
+            
 
         }
         /// <summary>
@@ -123,7 +120,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public List<UserInfoModel> Get(string UserEmail)
         {
-            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail={UserEmail}").ToList();
+            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail='{UserEmail}'");
         }
         /// <summary>
         /// 验证密保

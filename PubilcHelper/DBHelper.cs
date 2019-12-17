@@ -34,6 +34,7 @@ namespace PubilcHelper
             }
             catch (Exception)
             {
+
                 if (!sdr.IsClosed)//数据流关闭
                 {
                     sdr.Close();

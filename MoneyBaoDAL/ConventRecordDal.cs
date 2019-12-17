@@ -23,7 +23,7 @@ namespace MoneyBaoDAL
         public int RecordAdd(ConventRecordModel recordModel)
         {
            
-            string sql = $"insert into ConventRecord values({recordModel.ShopInfoId},'{recordModel.UserEmail}',{recordModel.ConventCount},{recordModel.ConsumeIntegral},'getDate()')";
+            string sql = $"insert into ConventRecord values({recordModel.ShopInfoId},'{recordModel.UserEmail}',{recordModel.ConventCount},{recordModel.ConsumeIntegral},getDate())";
 
                return   PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
@@ -46,9 +46,9 @@ namespace MoneyBaoDAL
         /// </summary>
         /// <param name="sid"></param>
         /// <returns></returns>
-        public int RecordDel(int DealRecordId)
+        public int RecordDel(int sid)
         {
-            string sql = $"delete from ConventRecord where DealRecordId = {DealRecordId}";
+            string sql = $"delete from ConventRecord where ConventRecordId = {sid}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
     }
