@@ -13,7 +13,8 @@ namespace MoneyBaoBll
   public  class AmountInfoBll
     {
         AmountInfoDal dal = new AmountInfoDal();
-        /// 添加
+        /// <summary>
+        /// 添加项目
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
