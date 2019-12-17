@@ -24,7 +24,7 @@ namespace MoneyBaoAPI.Controllers
         /// 显示
         /// </summary>
         /// <returns></returns> 
-        public List<GrowthInfoModel> Show(string UserEmail = null)
+        public List<GrowthInfoModel> Get(string UserEmail = null)
         {
             return growthInfo.Show(UserEmail);
         }
