@@ -9,7 +9,7 @@ using MoneyBaoModel;
 
 namespace MoneyBaoAPI.Controllers
 {
-    
+
     public class ShopInfoController : ApiController
     {
         /// <summary>
