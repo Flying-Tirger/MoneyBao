@@ -21,7 +21,7 @@ namespace MoneyBaoDAL
         public int Post(GrowthInfoModel model)
         {
 
-            string sql = $"insert into GrowthInfo values({model.UserEmail},{model.ChangeTime},{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},{model.Cause},{model.DisthingId},{model.ChangeValue})";
+            string sql = $"insert into GrowthInfo values('{model.UserEmail}',getDate(),{model.BeforeIntegral},{model.AfterIntegra},{model.GrowthValueNow},'{model.Cause}',{model.DisthingId},{model.ChangeValue})";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace MoneyBaoDAL
         public List<GrowthInfoModel> Show(string UserEmail = null)
         {
             string sql = "select * from GrowthInfo";
-            if (!string.IsNullOrWhiteSpace(UserEmail))
+            if (!string.IsNullOrWhiteSpace(UserEmail)) 
             {
                 sql += $" where UserEmail = '{UserEmail}'";
             }
