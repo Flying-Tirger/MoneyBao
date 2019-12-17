@@ -23,11 +23,11 @@ namespace MoneyBaoModel
         /// <summary>
         /// 商品价格
         /// </summary>
-        public double ShopMuch { get; set; }
+        public decimal ShopMuch { get; set; }
         /// <summary>
         /// 商品折扣
         /// </summary>
-        public double ShopDiscount { get; set; }
+        public decimal ShopDiscount { get; set; }
         /// <summary>
         /// 库存量
         /// </summary>
