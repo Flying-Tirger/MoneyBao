@@ -22,11 +22,11 @@ namespace MoneyBaoModel
         /// <summary>
         /// 交易前余额
         /// </summary>
-        public double StartBalance { get; set; }
+        public decimal StartBalance { get; set; }
         /// <summary>
         /// 交易后余额
         /// </summary>
-        public double EndBalance { get; set; }
+        public decimal EndBalance { get; set; }
         /// <summary>
         /// 交易时间
         /// </summary>

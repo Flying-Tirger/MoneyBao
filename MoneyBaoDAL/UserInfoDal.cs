@@ -59,7 +59,7 @@ namespace MoneyBaoDAL
         /// <param name="m">变动量</param>
         /// <param name="distinguish">0是积分，1是成长值,2是钱包</param>
         /// <returns></returns> 
-        public int UpdataIntergral(string UserEmail, double m, int distinguish)
+        public int UpdataIntergral(string UserEmail, decimal m, int distinguish)
         {
             string sql = "";
             if (distinguish == 0)
@@ -123,7 +123,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public List<UserInfoModel> Get(string UserEmail)
         {
-            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail={UserEmail}").ToList();
+            return DBHelper.GetToList<UserInfoModel>($"select UserEmail,UserSex,FirstEncryPetdId,SecondEncryPetdId,ThreedEncryPetdId,CreateTime,HeadFile,UserName,Intergral,MoneyBag,PhoneNumber,IdentityId,BankCard from userinfo where UserEmail='{UserEmail}'");
         }
         /// <summary>
         /// 验证密保

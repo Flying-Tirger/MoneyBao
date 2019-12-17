@@ -30,9 +30,9 @@ namespace MoneyBaoDAL
         /// <param name="AmountMoney">投资金额</param>
         /// <param name="AmountId">项目Id</param>
         /// <returns></returns>
-        public int UpdateInvestorCount(Double AmountMoney,int AmountId)
+        public int UpdateInvestorCount(decimal AmountMoney,int AmountId)
         {
-            string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1,set AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
+            string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1, AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace MoneyBaoDAL
         /// </summary>
         public List<AmountInfoModel> ShowAmountInfo()
         {
-            return PubilcHelper.DBHelper.GetToList<AmountInfoModel>("select * fromv AmountInfo").ToList();
+            return PubilcHelper.DBHelper.GetToList<AmountInfoModel>("select * from AmountInfo").ToList();
         }
     }
 }

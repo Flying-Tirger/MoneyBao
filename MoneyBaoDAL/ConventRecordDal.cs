@@ -23,7 +23,7 @@ namespace MoneyBaoDAL
         public int RecordAdd(ConventRecordModel recordModel)
         {
            
-            string sql = $"insert into ConventRecord values('{recordModel.ConventCount}','{recordModel.ConsumeIntegral}','newdate()')";
+            string sql = $"insert into ConventRecord values({recordModel.ShopInfoId},'{recordModel.UserEmail}',{recordModel.ConventCount},{recordModel.ConsumeIntegral},getDate())";
 
                return   PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
@@ -32,19 +32,23 @@ namespace MoneyBaoDAL
         ///       兑换的个数，消费的积分，兑换时间
         /// </summary>
         /// <returns></returns>
-        public List<ConventRecordModel> RecordShow()
+        public List<ConventRecordModel> RecordShow(string UserEmail = null)
         {
-            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail ";
-           return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
+            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail Where 1=1";
+            if (!string.IsNullOrWhiteSpace(UserEmail))
+            {
+                sql += $" and UserEmail = '{UserEmail}'";
+            }
+            return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有
         /// </summary>
         /// <param name="sid"></param>
         /// <returns></returns>
-        public int RecordDel(string DealRecordId)
+        public int RecordDel(int sid)
         {
-            string sql = $"delete from ConventRecord where DealRecordId in ({DealRecordId})";
+            string sql = $"delete from ConventRecord where ConventRecordId = {sid}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
     }
