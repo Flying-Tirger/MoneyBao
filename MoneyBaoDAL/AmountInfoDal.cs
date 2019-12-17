@@ -32,7 +32,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int UpdateInvestorCount(decimal AmountMoney,int AmountId)
         {
-            string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1,set AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
+            string sql = $"update AmountInfo  set  InvestorCount=InvestorCount+1, AmountMoney=AmountMoney+{AmountMoney} where AmountId={AmountId}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
