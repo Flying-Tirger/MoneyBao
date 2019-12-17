@@ -22,7 +22,7 @@ namespace MoneyBaoDAL
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
                 return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
-            }
+            } 
         }
         /// <summary>
         /// 显示记录
