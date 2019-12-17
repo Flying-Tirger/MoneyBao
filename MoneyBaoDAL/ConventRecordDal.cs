@@ -46,9 +46,9 @@ namespace MoneyBaoDAL
         /// </summary>
         /// <param name="sid"></param>
         /// <returns></returns>
-        public int RecordDel(string DealRecordId)
+        public int RecordDel(int DealRecordId)
         {
-            string sql = $"delete from ConventRecord where DealRecordId in ({DealRecordId})";
+            string sql = $"delete from ConventRecord where DealRecordId = {DealRecordId}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
     }
