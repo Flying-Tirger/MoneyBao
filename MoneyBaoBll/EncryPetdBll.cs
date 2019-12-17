@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MoneyBaoBll
 {
     /// <summary>
-    /// 密保表
+    /// 密保表a
     /// </summary>
     public class EncryPetdBll
     {
