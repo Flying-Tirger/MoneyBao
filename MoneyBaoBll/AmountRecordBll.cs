@@ -21,15 +21,24 @@ namespace MoneyBaoBll
         public int AddAmountRecord(AmountRecordModel model)
         {
             MoneyBaoDAL.AmountInfoDal infoDal = new MoneyBaoDAL.AmountInfoDal();
-            int n =  infoDal.UpdateInvestorCount(model.InvestorMoney, model.AmountId);
-            if (n>0)
+            if (model.AmountDisthingId==0)
             {
                 return dal.AddAmountRecord(model);
             }
             else
             {
-                return 0;
+                int n = infoDal.UpdateInvestorCount(model.InvestorMoney, model.AmountId);
+                if (n > 0)
+                {
+                    return dal.AddAmountRecord(model);
+                }
+                else
+                {
+                    return 0;
+                }
             }
+         
+          
         }
         
         /// <summary>

@@ -19,8 +19,23 @@ namespace MoneyBaoBll
         /// <returns></returns>
         public int AddAmountInfo(AmountInfoModel model)
         {
-     
-            return dal.AddAmountInfo(model);
+            if (dal.AddAmountInfo(model)>0)
+            {
+                AmountRecordDal recordDal = new AmountRecordDal();
+                AmountRecordModel amount = new AmountRecordModel()
+                {
+                       AmountDisthingId=0,
+                      AmountInfoId=model.AmountId,
+                      AmountState=2, ApplyMoney=model.ApplyMoney, CreateTime=DateTime.Now,
+                      UserEmail =model.FinanceUser,
+                       InvestorMoney=0
+                };
+              return  recordDal.AddAmountRecord(amount);
+            }
+            else
+            {
+                return 0;
+            }
         }
         /// <summary>
         /// 修改投资人的身份、抵押物、抵押物证明、联系人手机号
