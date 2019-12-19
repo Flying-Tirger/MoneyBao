@@ -22,5 +22,7 @@ namespace MoneyBaoBll
         {
             return dal.Get();
         }
+
+
     }
 }
