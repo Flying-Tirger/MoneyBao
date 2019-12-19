@@ -16,9 +16,9 @@ namespace MoneyBaoModel
         /// </summary>
         public int AmountId { get; set; }
         /// <summary>
-        /// 连接项目表
+        /// 连接项目表  (根据项目编号)
         /// </summary>
-        public int AmountInfoId { get; set; }
+        public string AmountSerial { get; set; }
         /// <summary>
         /// 用户邮箱
         /// </summary>

@@ -26,7 +26,7 @@ namespace MoneyBaoBll
                 AmountRecordModel amount = new AmountRecordModel()
                 {
                        AmountDisthingId=0,
-                      AmountInfoId=model.AmountId,
+                       AmountSerial = model.AmountSerial,
                       AmountState=2, ApplyMoney=model.ApplyMoney, CreateTime=DateTime.Now,
                       UserEmail =model.FinanceUser,
                        InvestorMoney=0
