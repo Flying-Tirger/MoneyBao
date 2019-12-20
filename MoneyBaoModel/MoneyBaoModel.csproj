@@ -48,6 +48,7 @@
     <Compile Include="DealRecordModel.cs" />
     <Compile Include="EncryPetdModel.cs" />
     <Compile Include="GrowthInfoModel.cs" />
+    <Compile Include="ListPage.cs" />
     <Compile Include="ShopInfoModel.cs" />
     <Compile Include="UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

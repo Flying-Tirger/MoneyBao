@@ -24,9 +24,17 @@ namespace MoneyBaoAPI.Controllers
         /// 显示
         /// </summary>
         /// <returns></returns> 
-        public List<GrowthInfoModel> Get(string UserEmail = null)
+        public ListPage<GrowthInfoModel>  Get(int page, int size,string UserEmail = null)
         {
-            return growthInfo.Show(UserEmail);
+            List<GrowthInfoModel> dt= growthInfo.Show(UserEmail);
+            ListPage<GrowthInfoModel> list = new ListPage<GrowthInfoModel>()
+            {
+                code = 0,
+                msg = "msg",
+                count = dt.Count,
+                data = dt.Skip((page - 1) * size).Take(size).ToList()
+            };
+            return list;
         }
     }
 }
