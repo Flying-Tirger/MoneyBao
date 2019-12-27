@@ -27,10 +27,20 @@ namespace MoneyBaoDAL
         /// <param name="ShopInfoId"></param>
         /// <param name="Count"></param>
         /// <returns></returns>
-        public int Update(int ShopInfoId, int Count)
+        public int Update(int ShopInfoId, int Count,int State=-1)
         {
-            string sql = $"update ShopInfo set StockCount-={Count} where ShopInfoId={ShopInfoId}";
-            return DBHelper.ExecuteNonQuery(sql);
+            string sql = "";
+            if (State != -1)
+            {
+                sql = $"update ShopInfo set StockCount-={Count}, ShopState={State} where ShopInfoId={ShopInfoId}";
+                return DBHelper.ExecuteNonQuery(sql);
+            }
+            else
+            {
+                sql = $"update ShopInfo set StockCount-={Count} where ShopInfoId={ShopInfoId}";
+                return DBHelper.ExecuteNonQuery(sql);
+            }
+            
         }
     }
 }

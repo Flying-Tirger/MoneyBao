@@ -31,9 +31,9 @@ namespace MoneyBaoAPI.Controllers
         /// <param name="Count">修改的库存量</param>
         /// <returns></returns>
         [HttpPut]
-        public int Putshop(int ShopInfoId, int Count)
+        public int Putshop(int ShopInfoId, int Count,int Integral,int State=-1)
         {
-            return bll.Update(ShopInfoId, Count);
+            return bll.Update(ShopInfoId, Count,State);
         }
     }
 }

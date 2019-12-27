@@ -18,11 +18,11 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int AddAmountRecord(AmountRecordModel model) 
         {
-            string sql = $"insert into AmountRecord values({model.AmountInfoId},'{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
+            string sql = $"insert into AmountRecord values('{model.AmountSerial}','{model.UserEmail}','{model.ApplyMoney}','{model.InvestorMoney}','{model.CreateTime}','{model.AmountState}','{model.AmountDisthingId}')";
             using (SqlConnection conn = new SqlConnection(SqlConntionHelper.GetConntion()))
             {
                 return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
-            } 
+            }
         }
         /// <summary>
         /// 显示记录
@@ -30,16 +30,16 @@ namespace MoneyBaoDAL
         /// <param name="CreateTime"></param>
         /// <param name="AmountState"></param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "" ,int AmountState = -1,string UserEmail="")
+        public List<AmountRecordModel> Show(string CreateTime = "" ,int AmountDisthingId = -1,string UserEmail="")
         {
             string sql = "select * from AmountRecord  where 1=1 ";
             if (!string.IsNullOrWhiteSpace(CreateTime))
             {
                 sql += $" and CreateTime>='{CreateTime}'";
             }
-            if (AmountState != -1)
+            if (AmountDisthingId != -1)
             {
-                sql += string.Format(" and AmountState={0}", AmountState);
+                sql += string.Format(" and AmountDisthingId={0}", AmountDisthingId);
             }
             if (!string.IsNullOrWhiteSpace(UserEmail))
             {

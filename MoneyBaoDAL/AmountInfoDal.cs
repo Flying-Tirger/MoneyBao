@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using MoneyBaoModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
+using System.IO;
+
 namespace MoneyBaoDAL
 {
     /// <summary>
@@ -21,7 +24,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
        public int AddAmountInfo(AmountInfoModel model)
         {         
-            string sql = $"insert into AmountInfo(AmountName,AmountSerial,ApplyMoney,AmountMoney,InterestRate,FinanceTime,RapayMentTime,FinanceUser,AmountState,CreateTime) values({model.AmountName},{model.AmountSerial},{model.ApplyMoney},{model.AmountMoney},{model.InterestRate},{model.FinanceTime},{model.RapayMentTime},{model.FinanceUser},{model.AmountState},{model.CreateTime})";
+            string sql = $"insert into AmountInfo(AmountName,AmountSerial,ApplyMoney,AmountMoney,InterestRate,FinanceTime,RapayMentTime,FinanceUser,AmountState,CreateTime) values('{model.AmountName}','{model.AmountSerial}',{model.ApplyMoney},{model.AmountMoney},{model.InterestRate},{model.FinanceTime},{model.RapayMentTime},'{model.FinanceUser}',{model.AmountState},'{model.CreateTime}')";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -42,7 +45,7 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int UpdateAmountInfo(AmountInfoModel model)
         {
-            string sql = $"update AmountInfo set IdentityFornt={model.IdentityFornt},IdentityReal={model.IdentityReal},Guarante={model.Guarantee},GuaranteeInfo={model.GuaranteeInfo},LinkManNumber={model.LinkManNumber} where AmountId={model.AmountId}";
+            string sql = $"update AmountInfo set AuditTime='{model.AuditTime}', IdentityFornt='{model.IdentityFornt}',IdentityReal='{model.IdentityReal}',Guarantee='{model.Guarantee}',GuaranteeInfo='{model.GuaranteeInfo}',LinkManNumber='{model.LinkManNumber}',InvestorCount='{model.InvestorCount}',AmountMoney='{model.AmountMoney}' where AmountId={model.AmountId}";
             return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -50,7 +53,7 @@ namespace MoneyBaoDAL
         /// </summary>
         public List<AmountInfoModel> ShowAmountInfo()
         {
-            return PubilcHelper.DBHelper.GetToList<AmountInfoModel>("select * from AmountInfo").ToList();
+            return PubilcHelper.DBHelper.GetToList<AmountInfoModel>("select * from AmountInfo");
         }
     }
 }

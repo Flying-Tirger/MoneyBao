@@ -28,9 +28,18 @@ namespace MoneyBaoAPI.Controllers
         /// <param name="StarTime"></param>
         /// <param name="EndTime"></param>
         /// <returns></returns>
-        public List<DealRecordModel> Get(string UserEmil = "", string StarTime = "", string EndTime = "")
+        public ListPage<DealRecordModel> Get(int page, int size,string UserEmil = "", string StarTime = "", string EndTime = "")
         {
-            return DealInfo.ListDealRecordModel(UserEmil, StarTime, EndTime);
+            List<DealRecordModel> dt= DealInfo.ListDealRecordModel(UserEmil, StarTime, EndTime);
+            ListPage<DealRecordModel> list = new ListPage<DealRecordModel>()
+            {
+                code = 0,
+                msg = "msg",
+                count = dt.Count,
+                data = dt.Skip((page - 1) * size).Take(size).ToList()
+            };
+            return list;
+
         }
     }
 }
