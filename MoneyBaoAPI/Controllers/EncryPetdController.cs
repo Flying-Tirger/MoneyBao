@@ -36,6 +36,14 @@ namespace MoneyBaoAPI.Controllers
             string TestGetCode = EMailHelper.Send(JiShou, 4);
             return TestGetCode;
         }
+
+        public string GetTestGetCode(string JiShou)
+        {
+            PubilcHelper.EMailHelperTwo EMailHelper = new PubilcHelper.EMailHelperTwo() ;
+            //TestGetCode返回验证码
+            string TestGetCode =EMailHelper.Send(JiShou, 4);
+            return TestGetCode;
+        }
     }
 }
 
