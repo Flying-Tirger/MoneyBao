@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MoneyBaoBll;
 using MoneyBaoModel;
-
+using Newtonsoft.Json;
 namespace MoneyBaoAPI.Controllers
 {
     /// <summary>
@@ -21,8 +21,9 @@ namespace MoneyBaoAPI.Controllers
         /// </summary>
         /// <param name="model">用户信息</param>
         /// <returns></returns>
-        public int Post(UserInfoModel model)
+        public int Post(string json)
         {
+            UserInfoModel model = JsonConvert.DeserializeObject<UserInfoModel>(json);
             return bll.Post(model);
         }
         /// <summary>

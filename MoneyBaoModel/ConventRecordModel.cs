@@ -36,5 +36,10 @@ namespace MoneyBaoModel
         /// 兑换时间
         /// </summary>
         public DateTime ConventTime      { get; set; }
+
+        /// <summary>
+        /// 商品名称
+        /// </summary>
+        public string ShopName { get; set; }
     }
 }

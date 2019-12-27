@@ -30,9 +30,12 @@ namespace MoneyBaoBll
         /// <param name="ShopInfoId"></param>
         /// <param name="Count"></param>
         /// <returns></returns>
-        public int Update(int ShopInfoId, int Count)
+        public int Update(int ShopInfoId, int Count,int State = -1)
         {
+            
             return dal.Update(ShopInfoId, Count);
         }
+
+  
     }
 }

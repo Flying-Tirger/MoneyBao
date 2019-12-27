@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MoneyBaoBll;
 using MoneyBaoModel;
-
+using Newtonsoft.Json;
 namespace MoneyBaoAPI.Controllers
 {
     /// <summary>
@@ -20,8 +20,9 @@ namespace MoneyBaoAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int PostAmountInfo(AmountInfoModel model)
+        public int PostAmountInfo(string json)
         {
+            AmountInfoModel model = JsonConvert.DeserializeObject<AmountInfoModel>(json);
             return bll.AddAmountInfo(model);
         }
         /// <summary>
@@ -36,9 +37,16 @@ namespace MoneyBaoAPI.Controllers
         /// <summary>
         /// 显示项目表
         /// </summary>
-        public List<AmountInfoModel> GetAmountInfo()
+        public List<AmountInfoModel> GetAmountInfo(int AmountId=-1)
         {
-            return bll.ShowAmountInfo();
+            if (AmountId==-1)
+            {
+                return bll.ShowAmountInfo();
+            }
+            else
+            {
+                return bll.ShowAmountInfo().Where(s => s.AmountId == AmountId).ToList();
+            }
         }
     }
 }

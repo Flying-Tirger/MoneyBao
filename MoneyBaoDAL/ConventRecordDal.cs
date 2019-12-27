@@ -34,12 +34,20 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public List<ConventRecordModel> RecordShow(string UserEmail = null)
         {
-            string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail Where 1=1";
-            if (!string.IsNullOrWhiteSpace(UserEmail))
+            if (UserEmail!=null)
             {
-                sql += $" and UserEmail = '{UserEmail}'";
+                string sql = $"select * from ConventRecord join UserInfo on ConventRecord.UserEmail=UserInfo.UserEmail  Where 1=1";
+                if (!string.IsNullOrWhiteSpace(UserEmail))
+                {
+                    sql += $" and UserEmail = '{UserEmail}'";
+                }
+                return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
             }
-            return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
+            else
+            {
+                string sql = $"select * from ConventRecord join ShopInfo on ConventRecord.ShopInfoId=ShopInfo.ShopInfoId  Where 1=1";
+                return PubilcHelper.DBHelper.GetToList<ConventRecordModel>(sql);
+            }
         }
         /// <summary>
         /// 删除：可单个删除兑换的信息，一键全选，删除所有

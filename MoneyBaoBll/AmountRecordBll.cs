@@ -48,9 +48,9 @@ namespace MoneyBaoBll
         /// <param name="AmountState">状态</param>
         /// <param name="UserEmail">用户邮箱</param>
         /// <returns></returns>
-        public List<AmountRecordModel> Show(string CreateTime = "",  int AmountState = -1,string UserEmail="")
+        public List<AmountRecordModel> Show(string CreateTime = "",  int AmountDisthingId = -1,string UserEmail="")
         {
-            return dal.Show(CreateTime, AmountState,UserEmail);
+            return dal.Show(CreateTime, AmountDisthingId, UserEmail);
         }
         /// <summary>
         /// 修改状态 
