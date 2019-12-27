@@ -14,7 +14,7 @@ namespace PubilcHelper
         /// <returns></returns>
         public static string GetConntion()
         {
-            string connectionString = "Data Source=192.168.0.172;Initial Catalog=MoneyLeopard;Persist Security Info=True;User ID=sa;pwd=159878";
+            string connectionString = "Data Source=10.1.159.16;Initial Catalog=MoneyLeopard;Persist Security Info=True;User ID=sa;pwd=159878";
            
             return connectionString;
         }
