@@ -28,9 +28,17 @@ namespace MoneyBaoAPI.Controllers
         /// <param name="AmountState">状态</param>
         /// <param name="UserEmail">用户邮箱</param>
         /// <returns></returns>
-        public List<AmountRecordModel> Get(string CreateTime = "", int AmountState = -1, string UserEmail = "")
+        public ListPage<AmountRecordModel> Get(int page, int size, string CreateTime = "", int AmountState = -1, string UserEmail = "")
         {
-            return bll.Show(CreateTime,AmountState,UserEmail);
+            List<AmountRecordModel> dt= bll.Show(CreateTime,AmountState,UserEmail);
+            ListPage<AmountRecordModel> list = new ListPage<AmountRecordModel>()
+            {
+                code = 0,
+                msg = "msg",
+                count = dt.Count,
+                data = dt.Skip((page - 1) * size).Take(size).ToList()
+            };
+            return list;
         }
         /// <summary>
         /// 修改状态 

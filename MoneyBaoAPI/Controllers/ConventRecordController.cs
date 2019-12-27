@@ -26,9 +26,17 @@ namespace MoneyBaoAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ConventRecordModel> RecordShow(string UserEmail = null)
+        public ListPage<ConventRecordModel> RecordShow(int page, int size, string UserEmail = null)
         {
-            return RecordBll.RecordShow(UserEmail);
+            List<ConventRecordModel> dt= RecordBll.RecordShow(UserEmail);
+            ListPage<ConventRecordModel> list = new ListPage<ConventRecordModel>()
+            {
+                code = 0,
+                msg = "msg",
+                count = dt.Count,
+                data = dt.Skip((page - 1) * size).Take(size).ToList()
+            };
+            return list;
         }
         [HttpDelete]
         /// <summary>
