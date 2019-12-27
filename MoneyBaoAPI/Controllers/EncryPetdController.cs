@@ -21,10 +21,7 @@ namespace MoneyBaoAPI.Controllers
         /// <returns>获取密保问题</returns>
         public List<EncryPetdModel> Get()
         {
-
             return bll.Get();
-        
-           
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MoneyBaoBll;
 using MoneyBaoModel;
+using Newtonsoft.Json;
 namespace MoneyBaoAPI.Controllers
 {
     public class GrowthInfoController : ApiController
@@ -16,8 +17,10 @@ namespace MoneyBaoAPI.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int Post(GrowthInfoModel model)
+        public int Post(string json)
+
         {
+            GrowthInfoModel model = JsonConvert.DeserializeObject<GrowthInfoModel>(json);
             return growthInfo.Post(model);
         }
         /// <summary>
