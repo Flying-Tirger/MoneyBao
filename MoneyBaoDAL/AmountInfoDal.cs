@@ -45,50 +45,8 @@ namespace MoneyBaoDAL
         /// <returns></returns>
         public int UpdateAmountInfo(AmountInfoModel model)
         {
-            //接收文件
-            HttpFileCollection file = HttpContext.Current.Request.Files;
-            //判断非空
-            if (file.Count >=3 )
-            {
-               
-                string str = Path.GetExtension(file[0].FileName).ToLower();
-                string strTwo = Path.GetExtension(file[1].FileName).ToLower();
-                string strTree = Path.GetExtension(file[2].FileName).ToLower();
-                int num = 0;
-                if (str.Equals(".jpg") || str.Equals(".png") || str.Equals(".gif"))
-                {
-                    string p = "/Content/Imgs/One" + Path.GetFileName(file[0].FileName);
-
-                    file[0].SaveAs(HttpContext.Current.Server.MapPath(p));
-                    num++;
-                }
-                if (strTwo.Equals(".jpg") || strTwo.Equals(".png") || strTwo.Equals(".gif"))
-                {
-                    string p = "/Content/Imgs/Two" + Path.GetFileName(file[1].FileName);
-
-                    file[1].SaveAs(HttpContext.Current.Server.MapPath(p));
-                    num++;
-                }
-                if (strTree.Equals(".jpg") || strTree.Equals(".png") || strTree.Equals(".gif"))
-                {
-                    string p = "/Content/Imgs/Tree" + Path.GetFileName(file[2].FileName);
-
-                    file[2].SaveAs(HttpContext.Current.Server.MapPath(p));
-                    num++;
-                }
-                if (num==3)
-                {
-                    string sql = $"update AmountInfo set AuditTime='{model.AuditTime}', IdentityFornt='{model.IdentityFornt}',IdentityReal='{model.IdentityReal}',Guarantee='{model.Guarantee}',GuaranteeInfo='{model.GuaranteeInfo}',LinkManNumber='{model.LinkManNumber}',InvestorCount='{model.InvestorCount}',AmountMoney='{model.AmountMoney}' where AmountId={model.AmountId}";
-                    num= PubilcHelper.DBHelper.ExecuteNonQuery(sql);
-                }
-                return num;
-              
-            }
-            else
-            {
-                return -1;
-
-            }
+            string sql = $"update AmountInfo set AuditTime='{model.AuditTime}', IdentityFornt='{model.IdentityFornt}',IdentityReal='{model.IdentityReal}',Guarantee='{model.Guarantee}',GuaranteeInfo='{model.GuaranteeInfo}',LinkManNumber='{model.LinkManNumber}',InvestorCount='{model.InvestorCount}',AmountMoney='{model.AmountMoney}' where AmountId={model.AmountId}";
+            return PubilcHelper.DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 显示项目表
